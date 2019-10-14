@@ -20,7 +20,7 @@ import okhttp3.Headers
  * should be populated as soon as the library receives data from OkHttp.
  */
 @Entity(tableName = "transactions")
-internal class HttpTransaction(
+class HttpTransaction(
     @PrimaryKey(autoGenerate = true) @ColumnInfo(name = "id") var id: Long = 0,
     @ColumnInfo(name = "requestDate") var requestDate: Long?,
     @ColumnInfo(name = "responseDate") var responseDate: Long?,

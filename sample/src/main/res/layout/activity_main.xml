@@ -51,6 +51,12 @@
         android:text="@string/trigger_exception" />
 
     <Button
+        android:id="@+id/triggerGeneric"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Trigger Generic" />
+
+    <Button
         android:id="@+id/launch_chucker_directly"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

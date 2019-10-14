@@ -1,6 +1,6 @@
 package com.chuckerteam.chucker.internal.support
 
-import com.chuckerteam.chucker.api.ChuckerCollector
+import com.chuckerteam.chucker.api.ChatterCollector
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
@@ -10,7 +10,7 @@ class ChuckerCrashHandlerTest {
 
     @Test
     fun uncaughtException_isReportedCorrectly() {
-        val mockCollector = mockk<ChuckerCollector>()
+        val mockCollector = mockk<ChatterCollector>()
         val mockThrowable = Throwable()
         val handler = ChuckerCrashHandler(mockCollector)
         every { mockCollector.onError(any(), any()) } returns Unit

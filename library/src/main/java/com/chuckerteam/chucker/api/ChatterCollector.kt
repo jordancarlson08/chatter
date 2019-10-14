@@ -1,6 +1,7 @@
 package com.chuckerteam.chucker.api
 
 import android.content.Context
+import com.chuckerteam.chucker.internal.data.entity.Generic
 import com.chuckerteam.chucker.internal.data.entity.HttpTransaction
 import com.chuckerteam.chucker.internal.data.entity.RecordedThrowable
 import com.chuckerteam.chucker.internal.data.repository.RepositoryProvider
@@ -17,7 +18,7 @@ import com.chuckerteam.chucker.internal.support.NotificationHelper
  * @param retentionManager Set the retention period for HTTP transaction data captured
  * by this collector. The default is one week.
  */
-class ChuckerCollector @JvmOverloads constructor(
+class ChatterCollector @JvmOverloads constructor(
     context: Context,
     var showNotification: Boolean = true,
     retentionPeriod: RetentionManager.Period = RetentionManager.Period.ONE_WEEK
@@ -44,6 +45,19 @@ class ChuckerCollector @JvmOverloads constructor(
     }
 
     /**
+     * Call this method when you want to record it a generic event.
+     */
+    fun onGeneric(screen: Chatter.Screen, title: String, subTitle: String?, message: String?, content: String?) {
+        val screenInt = screen.ordinal
+        val generic = Generic(screenInt, title, subTitle, message, content)
+        RepositoryProvider.generic().saveGeneric(generic)
+        if (showNotification) {
+            notificationHelper.show(generic)
+        }
+        retentionManager.doMaintenance()
+    }
+
+    /**
      * Call this method when you send an HTTP request.
      * @param transaction The HTTP transaction sent
      */
@@ -57,7 +71,7 @@ class ChuckerCollector @JvmOverloads constructor(
 
     /**
      * Call this method when you received the response of an HTTP request.
-     * It must be called after [ChuckerCollector.onRequestSent].
+     * It must be called after [ChatterCollector.onRequestSent].
      * @param transaction The sent HTTP transaction completed with the response
      */
     internal fun onResponseReceived(transaction: HttpTransaction) {

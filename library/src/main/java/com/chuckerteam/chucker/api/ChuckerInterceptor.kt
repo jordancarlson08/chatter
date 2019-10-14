@@ -2,7 +2,7 @@ package com.chuckerteam.chucker.api
 
 import android.content.Context
 import android.util.Log
-import com.chuckerteam.chucker.api.Chucker.LOG_TAG
+import com.chuckerteam.chucker.api.Chatter.LOG_TAG
 import com.chuckerteam.chucker.internal.data.entity.HttpTransaction
 import com.chuckerteam.chucker.internal.support.IOUtils
 import com.chuckerteam.chucker.internal.support.hasBody
@@ -23,7 +23,7 @@ private const val MAX_BLOB_SIZE = 1000_000L
  * in your application for later inspection.
  *
  * @param context An Android [Context]
- * @param collector A [ChuckerCollector] to customize data retention
+ * @param collector A [ChatterCollector] to customize data retention
  * @param maxContentLength The maximum length for request and response content
  * before they are truncated. Warning: setting this value too high may cause unexpected
  * results.
@@ -31,10 +31,10 @@ private const val MAX_BLOB_SIZE = 1000_000L
  * the ChuckerUI but will be replaced with a `**`.
  */
 class ChuckerInterceptor @JvmOverloads constructor(
-    private val context: Context,
-    private val collector: ChuckerCollector = ChuckerCollector(context),
-    private val maxContentLength: Long = 250000L,
-    private val headersToRedact: MutableSet<String> = mutableSetOf()
+        private val context: Context,
+        private val collector: ChatterCollector = ChatterCollector(context),
+        private val maxContentLength: Long = 250000L,
+        private val headersToRedact: MutableSet<String> = mutableSetOf()
 ) : Interceptor {
 
     private val io: IOUtils = IOUtils(context)

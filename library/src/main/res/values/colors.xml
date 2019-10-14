@@ -4,12 +4,12 @@
     Palette from
     https://material.io/tools/color/#!/?view.left=0&view.right=0&primary.color=01579B&secondary.color=00E676
     -->
-    <color name="chucker_primary_color">#01579b</color>
-    <color name="chucker_primary_light_color">#4f83cc</color>
-    <color name="chucker_primary_dark_color">#002f6c</color>
-    <color name="chucker_secondary_color">#00e676</color>
-    <color name="chucker_secondary_light_color">#66ffa6</color>
-    <color name="chucker_secondary_dark_color">#00b248</color>
+    <color name="chucker_primary_color">@color/chatty_green</color>
+    <color name="chucker_primary_light_color">@color/chatty_light</color>
+    <color name="chucker_primary_dark_color">@color/chatty_dark</color>
+    <color name="chucker_secondary_color">@color/blue</color>
+    <color name="chucker_secondary_light_color">@color/blue_light</color>
+    <color name="chucker_secondary_dark_color">@color/blue_dark</color>
     <color name="chucker_primary_text_color">#ffffff</color>
     <color name="chucker_secondary_text_color">#000000</color>
 
@@ -19,4 +19,13 @@
     <color name="chucker_status_500">#B71C1C</color>
     <color name="chucker_status_400">#FF9800</color>
     <color name="chucker_status_300">#0D47A1</color>
+
+
+    <color name="chatty_green">#14C099</color>
+    <color name="chatty_dark">#00a170</color>
+    <color name="chatty_light">#aae4d2</color>
+
+    <color name="blue">#4C5FFF</color>
+    <color name="blue_dark">#1133ef</color>
+    <color name="blue_light">#9fa3ff</color>
 </resources>

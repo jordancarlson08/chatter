@@ -10,7 +10,7 @@ import com.chuckerteam.chucker.internal.support.FormatUtils
  * Represent a Throwable that was fired from an App.
  */
 @Entity(tableName = "throwables")
-internal data class RecordedThrowable(
+data class RecordedThrowable(
     @PrimaryKey(autoGenerate = true) @ColumnInfo(name = "id") var id: Long? = 0,
     @ColumnInfo(name = "tag") var tag: String?,
     @ColumnInfo(name = "date") var date: Long?,

@@ -15,7 +15,7 @@
  ~ limitations under the License.
  -->
 <resources>
-    <string name="chucker_name">Chucker</string>
+    <string name="chucker_name">Chatter</string>
     <string name="chucker_http_notification_title">Recording HTTP activity</string>
     <string name="chucker_clear">Clear</string>
     <string name="chucker_cancel">Cancel</string>

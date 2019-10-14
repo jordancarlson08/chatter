@@ -2,7 +2,6 @@ package com.chuckerteam.chucker.api
 
 import android.content.Context
 import android.content.Intent
-import androidx.annotation.IntDef
 import com.chuckerteam.chucker.internal.support.ChuckerCrashHandler
 import com.chuckerteam.chucker.internal.support.NotificationHelper
 import com.chuckerteam.chucker.internal.ui.MainActivity
@@ -10,7 +9,7 @@ import com.chuckerteam.chucker.internal.ui.MainActivity
 /**
  * Chucker methods and utilities to interact with the library.
  */
-object Chucker {
+object Chatter {
 
     /**
      * Check if this instance is the operation one or no-op.
@@ -25,10 +24,10 @@ object Chucker {
      * @return An Intent for the main Chucker Activity that can be started with [Context.startActivity].
      */
     @JvmStatic
-    fun getLaunchIntent(context: Context, @Screen screen: Int): Intent {
+    fun getLaunchIntent(context: Context, screen: Screen): Intent {
         return Intent(context, MainActivity::class.java)
-            .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-            .putExtra(MainActivity.EXTRA_SCREEN, screen)
+                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                .putExtra(MainActivity.EXTRA_SCREEN, screen.ordinal)
     }
 
     /**
@@ -38,7 +37,7 @@ object Chucker {
      * @param collector the ChuckerCollector
      */
     @JvmStatic
-    fun registerDefaultCrashHandler(collector: ChuckerCollector) {
+    fun registerDefaultCrashHandler(collector: ChatterCollector) {
         Thread.setDefaultUncaughtExceptionHandler(ChuckerCrashHandler(collector))
     }
 
@@ -58,14 +57,13 @@ object Chucker {
         NotificationHelper(context).dismissErrorsNotification()
     }
 
-    const val SCREEN_HTTP = 1
-    const val SCREEN_ERROR = 2
-
-    /**
-     * Annotation used to specify which screen of Chucker should be launched.
-     */
-    @IntDef(value = [SCREEN_HTTP, SCREEN_ERROR])
-    annotation class Screen
+    enum class Screen {
+        SESSION,
+        HTTP,
+        ERROR,
+        ANALYTICS,
+        APP_STRINGS
+    }
 
     internal const val LOG_TAG = "Chucker"
 }

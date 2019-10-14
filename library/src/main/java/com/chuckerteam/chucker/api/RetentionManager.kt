@@ -3,7 +3,7 @@ package com.chuckerteam.chucker.api
 import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
-import com.chuckerteam.chucker.api.Chucker.LOG_TAG
+import com.chuckerteam.chucker.api.Chatter.LOG_TAG
 import com.chuckerteam.chucker.internal.data.repository.RepositoryProvider
 import java.util.concurrent.TimeUnit
 

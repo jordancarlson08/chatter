@@ -1,8 +1,8 @@
 package com.chuckerteam.chucker.sample
 
 import android.content.Context
-import com.chuckerteam.chucker.api.Chucker
-import com.chuckerteam.chucker.api.ChuckerCollector
+import com.chuckerteam.chucker.api.Chatter
+import com.chuckerteam.chucker.api.ChatterCollector
 import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.chuckerteam.chucker.api.RetentionManager
 import com.chuckerteam.chucker.sample.HttpBinApi.Data
@@ -20,7 +20,7 @@ class HttpBinClient(
     context: Context
 ) {
 
-    private val collector = ChuckerCollector(
+    private val collector = ChatterCollector(
         context = context,
         showNotification = true,
         retentionPeriod = RetentionManager.Period.ONE_HOUR
@@ -89,7 +89,7 @@ class HttpBinClient(
     }
 
     internal fun initializeCrashHandler() {
-        Chucker.registerDefaultCrashHandler(collector)
+        Chatter.registerDefaultCrashHandler(collector)
     }
 
     internal fun recordException() {

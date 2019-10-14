@@ -121,7 +121,7 @@ public class TransactionListFragment extends Fragment
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 RepositoryProvider.transaction().deleteAllTransactions();
-                                NotificationHelper.clearBuffer();
+                                NotificationHelper.Companion.clearBuffer();
                             }
                         })
                 .setNegativeButton(R.string.chucker_cancel, null)

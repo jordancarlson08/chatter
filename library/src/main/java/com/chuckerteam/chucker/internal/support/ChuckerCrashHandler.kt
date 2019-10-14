@@ -1,8 +1,8 @@
 package com.chuckerteam.chucker.internal.support
 
-import com.chuckerteam.chucker.api.ChuckerCollector
+import com.chuckerteam.chucker.api.ChatterCollector
 
-class ChuckerCrashHandler(private val collector: ChuckerCollector) : Thread.UncaughtExceptionHandler {
+class ChuckerCrashHandler(private val collector: ChatterCollector) : Thread.UncaughtExceptionHandler {
 
     private val defaultHandler: Thread.UncaughtExceptionHandler? = Thread.getDefaultUncaughtExceptionHandler()
 
