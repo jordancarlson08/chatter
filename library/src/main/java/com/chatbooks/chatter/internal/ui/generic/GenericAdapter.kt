@@ -52,8 +52,21 @@ internal class GenericAdapter(val listener: OnClickListListener) :
             throwableId = id
 
             titleView.text = title
+
+            if (subTitle.isNullOrEmpty()) {
+                subTitleView.visibility = View.GONE
+            } else {
+                subTitleView.visibility = View.VISIBLE
+            }
             subTitleView.text = subTitle
+
+            if (message.isNullOrEmpty()) {
+                messageView.visibility = View.GONE
+            } else {
+                messageView.visibility = View.VISIBLE
+            }
             messageView.text = message
+
             dateView.text = formattedDate
         }
 

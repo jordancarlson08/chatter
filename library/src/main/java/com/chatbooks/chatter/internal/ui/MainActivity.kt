@@ -31,19 +31,12 @@ import kotlinx.android.synthetic.main.chatter_activity_main.*
 
 class MainActivity : BaseChatterActivity(), TransactionAdapter.TransactionClickListListener, ErrorAdapter.ErrorClickListListener, GenericAdapter.OnClickListListener {
 
-    private val applicationName: CharSequence
-        get() {
-            val applicationInfo = applicationInfo
-            return applicationInfo.loadLabel(packageManager)
-        }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.chatter_activity_main)
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
-        toolbar.subtitle = applicationName
 
         viewPager.adapter = HomePageAdapter(supportFragmentManager)
 
