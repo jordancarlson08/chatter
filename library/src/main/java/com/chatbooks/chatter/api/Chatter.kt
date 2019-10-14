@@ -60,9 +60,9 @@ object Chatter {
     enum class Screen {
         SESSION,
         HTTP,
-        ERROR,
+        CRASHES,
         EVENTS,
-        STRINGS
+        APPSTRINGS
     }
 
     internal const val LOG_TAG = "Chatter"

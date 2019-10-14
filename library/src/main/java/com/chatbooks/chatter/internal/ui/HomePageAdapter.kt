@@ -17,9 +17,9 @@ internal class HomePageAdapter(fragmentManager: FragmentManager) : FragmentState
         return when (position) {
             Chatter.Screen.SESSION.ordinal -> GenericListFragment.newInstance(position)
             Chatter.Screen.HTTP.ordinal -> TransactionListFragment.newInstance()
-            Chatter.Screen.ERROR.ordinal -> ErrorListFragment.newInstance()
+            Chatter.Screen.CRASHES.ordinal -> ErrorListFragment.newInstance()
             Chatter.Screen.EVENTS.ordinal -> GenericListFragment.newInstance(position)
-            Chatter.Screen.STRINGS.ordinal -> GenericListFragment.newInstance(position)
+            Chatter.Screen.APPSTRINGS.ordinal -> GenericListFragment.newInstance(position)
             else -> TransactionListFragment.newInstance()
         }
     }
@@ -32,9 +32,9 @@ internal class HomePageAdapter(fragmentManager: FragmentManager) : FragmentState
         return when (position) {
             Chatter.Screen.SESSION.ordinal -> Chatter.Screen.values()[position].name
             Chatter.Screen.HTTP.ordinal -> Chatter.Screen.values()[position].name
-            Chatter.Screen.ERROR.ordinal -> Chatter.Screen.values()[position].name
+            Chatter.Screen.CRASHES.ordinal -> Chatter.Screen.values()[position].name
             Chatter.Screen.EVENTS.ordinal -> Chatter.Screen.values()[position].name
-            Chatter.Screen.STRINGS.ordinal -> Chatter.Screen.values()[position].name
+            Chatter.Screen.APPSTRINGS.ordinal -> Chatter.Screen.values()[position].name
             else -> Chatter.Screen.values()[position].name
         }
     }

@@ -84,7 +84,7 @@ class NotificationHelper(private val context: Context) {
     fun show(throwable: RecordedThrowable) {
         if (!BaseChatterActivity.isInForeground) {
             val builder = NotificationCompat.Builder(context, CHANNEL_ID)
-                    .setContentIntent(PendingIntent.getActivity(context, ERROR_NOTIFICATION_ID, Chatter.getLaunchIntent(context, Chatter.Screen.ERROR), PendingIntent.FLAG_UPDATE_CURRENT))
+                    .setContentIntent(PendingIntent.getActivity(context, ERROR_NOTIFICATION_ID, Chatter.getLaunchIntent(context, Chatter.Screen.CRASHES), PendingIntent.FLAG_UPDATE_CURRENT))
                     .setLocalOnly(true)
                     .setSmallIcon(R.drawable.chatter_ic_subject_white_24dp)
                     .setColor(ContextCompat.getColor(context, R.color.chatter_status_error))
