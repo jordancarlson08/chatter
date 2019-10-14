@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         triggerGeneric.setOnClickListener {
             if (toggle) {
                 toggle = !toggle
-                collector.onGeneric(Chatter.Screen.ANALYTICS, "Generic Title", "generic subtitle", "some message", "Some content that could potentially be very long")
+                collector.onGeneric(Chatter.Screen.EVENTS, "Generic Title", "generic subtitle", "some message", "Some content that could potentially be very long")
             } else {
                 toggle = !toggle
                 collector.onGeneric(Chatter.Screen.SESSION, "Generic Session Title", "generic session subtitle", "some message", "Some content that could potentially be very long")

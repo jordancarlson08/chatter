@@ -61,8 +61,8 @@ object Chatter {
         SESSION,
         HTTP,
         ERROR,
-        ANALYTICS,
-        APP_STRINGS
+        EVENTS,
+        STRINGS
     }
 
     internal const val LOG_TAG = "Chatter"
