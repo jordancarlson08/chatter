@@ -4,21 +4,21 @@
     Palette from
     https://material.io/tools/color/#!/?view.left=0&view.right=0&primary.color=01579B&secondary.color=00E676
     -->
-    <color name="chucker_primary_color">@color/chatty_green</color>
-    <color name="chucker_primary_light_color">@color/chatty_light</color>
-    <color name="chucker_primary_dark_color">@color/chatty_dark</color>
-    <color name="chucker_secondary_color">@color/blue</color>
-    <color name="chucker_secondary_light_color">@color/blue_light</color>
-    <color name="chucker_secondary_dark_color">@color/blue_dark</color>
-    <color name="chucker_primary_text_color">#ffffff</color>
-    <color name="chucker_secondary_text_color">#000000</color>
+    <color name="chatter_primary_color">@color/chatty_green</color>
+    <color name="chatter_primary_light_color">@color/chatty_light</color>
+    <color name="chatter_primary_dark_color">@color/chatty_dark</color>
+    <color name="chatter_secondary_color">@color/blue</color>
+    <color name="chatter_secondary_light_color">@color/blue_light</color>
+    <color name="chatter_secondary_dark_color">@color/blue_dark</color>
+    <color name="chatter_primary_text_color">#ffffff</color>
+    <color name="chatter_secondary_text_color">#000000</color>
 
-    <color name="chucker_status_default">#212121</color>
-    <color name="chucker_status_requested">#9E9E9E</color>
-    <color name="chucker_status_error">#F44336</color>
-    <color name="chucker_status_500">#B71C1C</color>
-    <color name="chucker_status_400">#FF9800</color>
-    <color name="chucker_status_300">#0D47A1</color>
+    <color name="chatter_status_default">#212121</color>
+    <color name="chatter_status_requested">#9E9E9E</color>
+    <color name="chatter_status_error">#F44336</color>
+    <color name="chatter_status_500">#B71C1C</color>
+    <color name="chatter_status_400">#FF9800</color>
+    <color name="chatter_status_300">#0D47A1</color>
 
 
     <color name="chatty_green">#14C099</color>

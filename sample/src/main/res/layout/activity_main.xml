@@ -20,7 +20,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="@dimen/doub_grid_size"
-    tools:context="com.chuckerteam.chucker.sample.MainActivity">
+    tools:context="com.chatbooks.chatter.sample.MainActivity">
 
     <TextView
         android:layout_width="match_parent"
@@ -57,8 +57,8 @@
         android:text="Trigger Generic" />
 
     <Button
-        android:id="@+id/launch_chucker_directly"
+        android:id="@+id/launch_chatter_directly"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/launch_chucker_directly" />
+        android:text="@string/launch_chatter_directly" />
 </LinearLayout>

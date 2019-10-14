@@ -28,7 +28,7 @@ dokka {
     skipEmptyPackages = true
 
     packageOptions {
-        prefix = "com.chuckerteam.chucker.internal"
+        prefix = "com.chatbooks.chatter.internal"
         suppress = true
     }
 }

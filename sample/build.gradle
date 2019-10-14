@@ -8,7 +8,7 @@ android {
     defaultConfig {
         minSdkVersion rootProject.minSdkVersion
         targetSdkVersion rootProject.targetSdkVersion
-        applicationId "com.chuckerteam.chucker.sample"
+        applicationId "com.chatbooks.chatter.sample"
         versionCode 1
         versionName "1.0"
     }
@@ -28,7 +28,7 @@ android {
 
     signingConfigs {
         debug {
-            keyAlias 'chucker'
+            keyAlias 'chatter'
             keyPassword 'android'
             storeFile file('debug.keystore')
             storePassword 'android'

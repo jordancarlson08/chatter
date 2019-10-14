@@ -1,11 +1,11 @@
-# Chucker
+# Chatter
 
-[![JitPack](https://jitpack.io/v/ChuckerTeam/Chucker.svg)](https://jitpack.io/#ChuckerTeam/Chucker) [![Build Status](https://travis-ci.org/ChuckerTeam/chucker.svg?branch=master)](https://travis-ci.org/ChuckerTeam/chucker) [![Android Weekly](https://img.shields.io/badge/Android%20Weekly-%23375-blue.svg)](https://androidweekly.net/issues/issue-375) ![License](https://img.shields.io/github/license/ChuckerTeam/Chucker.svg) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-orange.svg)](http://makeapullrequest.com)
+[![JitPack](https://jitpack.io/v/ChatterTeam/Chatter.svg)](https://jitpack.io/#ChatterTeam/Chatter) [![Build Status](https://travis-ci.org/ChatterTeam/chatter.svg?branch=master)](https://travis-ci.org/ChatterTeam/chatter) [![Android Weekly](https://img.shields.io/badge/Android%20Weekly-%23375-blue.svg)](https://androidweekly.net/issues/issue-375) ![License](https://img.shields.io/github/license/ChatterTeam/Chatter.svg) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-orange.svg)](http://makeapullrequest.com)
 
 _A fork of [Chuck](https://github.com/jgilfelt/chuck)_
 
 <p align="center">
-  <img src="assets/ic_launcher-web.png" alt="chucker icon" width="30%"/>
+  <img src="assets/ic_launcher-web.png" alt="chatter icon" width="30%"/>
 </p>
 
 * [Getting Started](#getting-started-)
@@ -21,19 +21,19 @@ _A fork of [Chuck](https://github.com/jgilfelt/chuck)_
 * [Acknowledgments](#acknowledgments-)
 * [License](#license-)
 
-Chucker simplifies the inspection of **HTTP(S) requests/responses**, and **Throwables** fired by your Android App. Chucker works as a **OkHttp Interceptor** persisting all those events inside your application, and providing a UI for inspecting and sharing their content.
+Chatter simplifies the inspection of **HTTP(S) requests/responses**, and **Throwables** fired by your Android App. Chatter works as a **OkHttp Interceptor** persisting all those events inside your application, and providing a UI for inspecting and sharing their content.
 
-Apps using Chucker will display a **push notification** showing a summary of ongoing HTTP activity and Throwables. Tapping on the notification launches the full Chucker UI. Apps can optionally suppress the notification, and launch the Chucker UI directly from within their own interface.
+Apps using Chatter will display a **push notification** showing a summary of ongoing HTTP activity and Throwables. Tapping on the notification launches the full Chatter UI. Apps can optionally suppress the notification, and launch the Chatter UI directly from within their own interface.
 
 | HTTP Calls | Throwables |
 | --- | --- |
-| ![Chucker HTTP transactions](assets/chucker-http.gif) | ![Chucker errors](assets/chucker-error.gif) |
+| ![Chatter HTTP transactions](assets/chatter-http.gif) | ![Chatter errors](assets/chatter-error.gif) |
 
 ## Getting Started 👣
 
-Chucker is distributed through [JitPack](https://jitpack.io/#ChuckerTeam/chucker). To use it you need to add the following **Gradle dependency** to your `build.gradle` file of you android app module (NOT the root file).
+Chatter is distributed through [JitPack](https://jitpack.io/#ChatterTeam/chatter). To use it you need to add the following **Gradle dependency** to your `build.gradle` file of you android app module (NOT the root file).
 
-Please note that you should add both the `library` and the the `library-no-op` variant to isolate Chucker from release builds as follows:
+Please note that you should add both the `library` and the the `library-no-op` variant to isolate Chatter from release builds as follows:
 
 ```groovy
 repositories {
@@ -43,46 +43,46 @@ repositories {
 
 ```groovy
 dependencies {
-  debugImplementation "com.github.ChuckerTeam.Chucker:library:3.0.1"
-  releaseImplementation "com.github.ChuckerTeam.Chucker:library-no-op:3.0.1"
+  debugImplementation "com.github.ChatterTeam.Chatter:library:3.0.1"
+  releaseImplementation "com.github.ChatterTeam.Chatter:library-no-op:3.0.1"
 }
 ```
 
-To start using Chucker, just plug it a new `ChuckerInterceptor` to your OkHttp Client Builder:
+To start using Chatter, just plug it a new `ChatterInterceptor` to your OkHttp Client Builder:
 
 ```kotlin
 val client = OkHttpClient.Builder()
-                .addInterceptor(ChuckerInterceptor(context))
+                .addInterceptor(ChatterInterceptor(context))
                 .build()
 ```
 
-**That's it!** 🎉 Chucker will now record all HTTP interactions made by your OkHttp client.
+**That's it!** 🎉 Chatter will now record all HTTP interactions made by your OkHttp client.
 
 ## Features 🧰
 
-Don't forget to check the [changelog](CHANGELOG.md) to have a look at all the changes in the latest version of Chucker.
+Don't forget to check the [changelog](CHANGELOG.md) to have a look at all the changes in the latest version of Chatter.
 
 * Compatible with **OkHTTP 4**
 * **API >= 16** compatible
 * Easy to integrate (just a 2 gradle implementation line).
 * Works **out of the box**, no customization needed.
-* **Empty release artifact** 🧼 (no traces of Chucker in your final APK).
+* **Empty release artifact** 🧼 (no traces of Chatter in your final APK).
 * Support for body text search with **highlighting** 🕵️‍♂️
 * Support for showing **images** in HTTP Responses 🖼
 
 ### Multi-Window 🚪
 
-The main Chucker activity is launched in its own task, allowing it to be displayed alongside the host app UI using Android 7.x multi-window support.
+The main Chatter activity is launched in its own task, allowing it to be displayed alongside the host app UI using Android 7.x multi-window support.
 
-![Multi-Window](assets/chucker-multiwindow.gif)
+![Multi-Window](assets/chatter-multiwindow.gif)
 
 ## Configure 🎨
 
-You can customize chucker providing an instance of a `ChuckerCollector`:
+You can customize chatter providing an instance of a `ChatterCollector`:
 
 ```kotlin
 // Create the Collector
-val chuckerCollector = ChuckerCollector(
+val chatterCollector = ChatterCollector(
         context = this,
         // Toggles visibility of the push notification
         showNotification = true,
@@ -91,40 +91,40 @@ val chuckerCollector = ChuckerCollector(
 )
 
 // Create the Interceptor
-val chuckerInterceptor = ChuckerInterceptor(
+val chatterInterceptor = ChatterInterceptor(
         context = this,
         // The previously created Collector
-        collector = chuckerCollector,
+        collector = chatterCollector,
         // The max body content length, after this responses will be truncated.
         maxContentLength = 250000L,
-        // List of headers to obfuscate in the Chucker UI
+        // List of headers to obfuscate in the Chatter UI
         headersToRedact = listOf("Auth-Token"))
 
-// Don't forget to plug the ChuckerInterceptor inside the OkHttpClient
+// Don't forget to plug the ChatterInterceptor inside the OkHttpClient
 val client = OkHttpClient.Builder()
-        .addInterceptor(chuckerInterceptor)
+        .addInterceptor(chatterInterceptor)
         .build()
 ```
 
 ### Throwables ☄️
 
-Chucker supports also collecting and displaying **Throwables** of your application. To inform Chucker that a `Throwable` was fired you need to call the `onError` method of the `ChuckerCollector` (you need to retain an instance of your collector):
+Chatter supports also collecting and displaying **Throwables** of your application. To inform Chatter that a `Throwable` was fired you need to call the `onError` method of the `ChatterCollector` (you need to retain an instance of your collector):
 
 ```kotlin
 try {
     // Do something risky
 } catch (IOException exception) {
-    chuckerCollector.onError("TAG", exception)
+    chatterCollector.onError("TAG", exception)
 }
 ```
 
 ### Redact-Header 👮‍♂️
 
-**Warning** The data generated and stored when using Chucker may contain sensitive information such as Authorization or Cookie headers, and the contents of request and response bodies. 
+**Warning** The data generated and stored when using Chatter may contain sensitive information such as Authorization or Cookie headers, and the contents of request and response bodies.
 
 It is intended for **use during development**, and not in release builds or other production deployments.
 
-You can redact headers that contain sensitive information by calling `redactHeader(String)` on the `ChuckerInterceptor`.
+You can redact headers that contain sensitive information by calling `redactHeader(String)` on the `ChatterInterceptor`.
 
 ```kotlin
 interceptor.redactHeader("Auth-Token");
@@ -133,14 +133,14 @@ interceptor.redactHeader("User-Session");
 
 ## Migrating 🚗
 
-If you're migrating **from [Chuck](https://github.com/jgilfelt/chuck) to Chucker**, please refer to this [migration guide](/docs/migrating-from-chuck.md).
+If you're migrating **from [Chuck](https://github.com/jgilfelt/chuck) to Chatter**, please refer to this [migration guide](/docs/migrating-from-chuck.md).
 
-If you're migrating **from Chucker v2.0 to v3.0**, please expect multiple breaking changes. You can find documentation on how to update your code on this other [migration guide](/docs/migrating-from-2.0.md).
+If you're migrating **from Chatter v2.0 to v3.0**, please expect multiple breaking changes. You can find documentation on how to update your code on this other [migration guide](/docs/migrating-from-2.0.md).
 
 
 ## Snapshots 📦
 
-Development of Chucker happens in the [develop](https://github.com/ChuckerTeam/chucker/tree/develop) branch. You can get `SNAPSHOT` versions directly from JitPack if needed.
+Development of Chatter happens in the [develop](https://github.com/ChatterTeam/chatter/tree/develop) branch. You can get `SNAPSHOT` versions directly from JitPack if needed.
 
 ```gradle
 repositories {
@@ -150,8 +150,8 @@ repositories {
 
 ```gradle
 dependencies {
-  debugImplementation "com.github.ChuckerTeam.Chucker:library:develop-SNAPSHOT"
-  releaseImplementation "com.github.ChuckerTeam.Chucker:library-no-op:develop-SNAPSHOT"
+  debugImplementation "com.github.ChatterTeam.Chatter:library:develop-SNAPSHOT"
+  releaseImplementation "com.github.ChatterTeam.Chatter:library-no-op:develop-SNAPSHOT"
 }
 ```
 
@@ -165,7 +165,7 @@ If you're looking for the **latest stable version**, you can always find it on t
 * Why are retries and redirects not being captured discretely?
 * Why are my encoded request/response bodies not appearing as plain text?
 
-Please refer to [this section of the OkHttp wiki](https://github.com/square/okhttp/wiki/Interceptors#choosing-between-application-and-network-interceptors). You can choose to use Chucker as either an application or network interceptor, depending on your requirements.
+Please refer to [this section of the OkHttp wiki](https://github.com/square/okhttp/wiki/Interceptors#choosing-between-application-and-network-interceptors). You can choose to use Chatter as either an application or network interceptor, depending on your requirements.
 
 ## Contributing 🤝
 
@@ -197,7 +197,7 @@ Big thanks to our contributors
 
 ### Libraries
 
-Chucker uses the following open source libraries:
+Chatter uses the following open source libraries:
 
 - [OkHttp](https://github.com/square/okhttp) - Copyright Square, Inc.
 - [Gson](https://github.com/google/gson) - Copyright Google Inc.

@@ -4,7 +4,7 @@ Change Log
 Version 3.0.1 *(2019-08-16)*
 ----------------------------
 
-This is a hotfix release for Chucker `3.0.0`.
+This is a hotfix release for Chatter `3.0.0`.
 
 **Summary of Changes**
 
@@ -18,12 +18,12 @@ This release was possible thanks to the contribution of: @redwarp
 Version 3.0.0 *(2019-08-12)*
 ----------------------------
 
-This is a new major release of Chucker. Please note that this major release contains multiple new features (see below) as well as several breaking changes. Please refer to the [migration guide](/docs/migrating-from-2.0.md) if you need support in migrating from `2.x` -> `3.0.0` or feel free to open an issue.
+This is a new major release of Chatter. Please note that this major release contains multiple new features (see below) as well as several breaking changes. Please refer to the [migration guide](/docs/migrating-from-2.0.md) if you need support in migrating from `2.x` -> `3.0.0` or feel free to open an issue.
 
 **Summary of Changes**
 
-* Chucker DB is now using [Room](https://developer.android.com/topic/libraries/architecture/room) instead of [Cupboard](https://bitbucket.org/littlerobots/cupboard/wiki/Home) as ORM.
-* The public api of Chucker (classes in `com.chuckerteam.chucker.api`) is now rewritten in Kotlin.
+* Chatter DB is now using [Room](https://developer.android.com/topic/libraries/architecture/room) instead of [Cupboard](https://bitbucket.org/littlerobots/cupboard/wiki/Home) as ORM.
+* The public api of Chatter (classes in `com.chatbooks.chatter.api`) is now rewritten in Kotlin.
 * Classes inside the `.internal` package should now not be considered part of the public api and expect them to change without major version bump.
 * Removed usage of `okhttp3.internal` methods.
 * General UI update of the library (new using ConstraintLayout)
@@ -35,7 +35,7 @@ This is a new major release of Chucker. Please note that this major release cont
 
 * New: [#67] Add support for images
 * New: [#53] Remove usage of methods from okhttp3.internal
-* New: [#49] Add missing `@JvmOverload` on the ChuckerInterceptor
+* New: [#49] Add missing `@JvmOverload` on the ChatterInterceptor
 * New: [#29] Replacing Cupboard with Room
 * New: [#24] Redact header (from okhttp logging)
 * New: [#23] Polishing the Color palette
@@ -46,7 +46,7 @@ This is a new major release of Chucker. Please note that this major release cont
 * New: [#6] Issue #43 Ask for confirmation when delete history
 * Breaking: [#66] Renamed registerDefaultCrashHanlder to registerDefaultCrashHandler
 * Breaking: [#36] Hide the RetentionManager in the API (Issue #31)
-* Breaking: [#42] Kotlinize the Public API of Chucker
+* Breaking: [#42] Kotlinize the Public API of Chatter
 * Breaking: [#35] Cleanup form the old Chuck names
 * Fix: [#87] Improving counting of seen transactions in notification message
 * Fix: [#86] Add positions to string formatting placeholders
@@ -60,7 +60,7 @@ This is a new major release of Chucker. Please note that this major release cont
 * Fix: [#39] Prevent potential XXE attacks from XML formatting
 * Fix: [#38] Do not display URL Query if the query is null
 * Fix: [#54] clean up
-* Fix: [#50] ChuckerInterceptor Cleanup
+* Fix: [#50] ChatterInterceptor Cleanup
 * Fix: [#4] Add no-op check to Chuck utility class
 * Infra: [#65] Kotlin to 1.3.41
 * Infra: [#59] Gradle to 5.5
@@ -104,7 +104,7 @@ Version 2.0.1 *(2018-11-05)*
 ----------------------------
 
  * New: Adds a class ChuckCollector that can be used out of ChuckInterceptor.
- * New: Chucker can now collect throwables.
+ * New: Chatter can now collect throwables.
  * New: Adds a notification for throwables.
  * New: Adds screens for throwables.
  * New: Transaction class offers a fluent writing.
@@ -152,49 +152,49 @@ Version 1.0.0 *(2017-02-07)*
 
 Initial release.
 
-[#4]: https://github.com/ChuckerTeam/chucker/pull/4
-[#5]: https://github.com/ChuckerTeam/chucker/pull/5
-[#6]: https://github.com/ChuckerTeam/chucker/pull/6
-[#10]: https://github.com/ChuckerTeam/chucker/pull/10
-[#16]: https://github.com/ChuckerTeam/chucker/pull/16
-[#17]: https://github.com/ChuckerTeam/chucker/pull/17
-[#20]: https://github.com/ChuckerTeam/chucker/pull/20
-[#21]: https://github.com/ChuckerTeam/chucker/pull/21
-[#22]: https://github.com/ChuckerTeam/chucker/pull/22
-[#23]: https://github.com/ChuckerTeam/chucker/pull/23
-[#24]: https://github.com/ChuckerTeam/chucker/pull/24
-[#25]: https://github.com/ChuckerTeam/chucker/pull/25
-[#27]: https://github.com/ChuckerTeam/chucker/pull/27
-[#28]: https://github.com/ChuckerTeam/chucker/pull/28
-[#29]: https://github.com/ChuckerTeam/chucker/pull/29
-[#33]: https://github.com/ChuckerTeam/chucker/pull/33
-[#34]: https://github.com/ChuckerTeam/chucker/pull/34
-[#35]: https://github.com/ChuckerTeam/chucker/pull/35
-[#36]: https://github.com/ChuckerTeam/chucker/pull/36
-[#38]: https://github.com/ChuckerTeam/chucker/pull/38
-[#39]: https://github.com/ChuckerTeam/chucker/pull/39
-[#40]: https://github.com/ChuckerTeam/chucker/pull/40
-[#41]: https://github.com/ChuckerTeam/chucker/pull/41
-[#42]: https://github.com/ChuckerTeam/chucker/pull/42
-[#44]: https://github.com/ChuckerTeam/chucker/pull/44
-[#47]: https://github.com/ChuckerTeam/chucker/pull/47
-[#48]: https://github.com/ChuckerTeam/chucker/pull/48
-[#49]: https://github.com/ChuckerTeam/chucker/pull/49
-[#50]: https://github.com/ChuckerTeam/chucker/pull/50
-[#51]: https://github.com/ChuckerTeam/chucker/pull/51
-[#53]: https://github.com/ChuckerTeam/chucker/pull/53
-[#54]: https://github.com/ChuckerTeam/chucker/pull/54
-[#59]: https://github.com/ChuckerTeam/chucker/pull/59
-[#62]: https://github.com/ChuckerTeam/chucker/pull/62
-[#63]: https://github.com/ChuckerTeam/chucker/pull/63
-[#65]: https://github.com/ChuckerTeam/chucker/pull/65
-[#66]: https://github.com/ChuckerTeam/chucker/pull/66
-[#67]: https://github.com/ChuckerTeam/chucker/pull/67
-[#71]: https://github.com/ChuckerTeam/chucker/pull/71
-[#72]: https://github.com/ChuckerTeam/chucker/pull/72
-[#75]: https://github.com/ChuckerTeam/chucker/pull/75
-[#77]: https://github.com/ChuckerTeam/chucker/pull/77
-[#81]: https://github.com/ChuckerTeam/chucker/pull/81
-[#86]: https://github.com/ChuckerTeam/chucker/pull/86
-[#87]: https://github.com/ChuckerTeam/chucker/pull/87
-[#96]: https://github.com/ChuckerTeam/chucker/pull/96
+[#4]: https://github.com/ChatterTeam/chatter/pull/4
+[#5]: https://github.com/ChatterTeam/chatter/pull/5
+[#6]: https://github.com/ChatterTeam/chatter/pull/6
+[#10]: https://github.com/ChatterTeam/chatter/pull/10
+[#16]: https://github.com/ChatterTeam/chatter/pull/16
+[#17]: https://github.com/ChatterTeam/chatter/pull/17
+[#20]: https://github.com/ChatterTeam/chatter/pull/20
+[#21]: https://github.com/ChatterTeam/chatter/pull/21
+[#22]: https://github.com/ChatterTeam/chatter/pull/22
+[#23]: https://github.com/ChatterTeam/chatter/pull/23
+[#24]: https://github.com/ChatterTeam/chatter/pull/24
+[#25]: https://github.com/ChatterTeam/chatter/pull/25
+[#27]: https://github.com/ChatterTeam/chatter/pull/27
+[#28]: https://github.com/ChatterTeam/chatter/pull/28
+[#29]: https://github.com/ChatterTeam/chatter/pull/29
+[#33]: https://github.com/ChatterTeam/chatter/pull/33
+[#34]: https://github.com/ChatterTeam/chatter/pull/34
+[#35]: https://github.com/ChatterTeam/chatter/pull/35
+[#36]: https://github.com/ChatterTeam/chatter/pull/36
+[#38]: https://github.com/ChatterTeam/chatter/pull/38
+[#39]: https://github.com/ChatterTeam/chatter/pull/39
+[#40]: https://github.com/ChatterTeam/chatter/pull/40
+[#41]: https://github.com/ChatterTeam/chatter/pull/41
+[#42]: https://github.com/ChatterTeam/chatter/pull/42
+[#44]: https://github.com/ChatterTeam/chatter/pull/44
+[#47]: https://github.com/ChatterTeam/chatter/pull/47
+[#48]: https://github.com/ChatterTeam/chatter/pull/48
+[#49]: https://github.com/ChatterTeam/chatter/pull/49
+[#50]: https://github.com/ChatterTeam/chatter/pull/50
+[#51]: https://github.com/ChatterTeam/chatter/pull/51
+[#53]: https://github.com/ChatterTeam/chatter/pull/53
+[#54]: https://github.com/ChatterTeam/chatter/pull/54
+[#59]: https://github.com/ChatterTeam/chatter/pull/59
+[#62]: https://github.com/ChatterTeam/chatter/pull/62
+[#63]: https://github.com/ChatterTeam/chatter/pull/63
+[#65]: https://github.com/ChatterTeam/chatter/pull/65
+[#66]: https://github.com/ChatterTeam/chatter/pull/66
+[#67]: https://github.com/ChatterTeam/chatter/pull/67
+[#71]: https://github.com/ChatterTeam/chatter/pull/71
+[#72]: https://github.com/ChatterTeam/chatter/pull/72
+[#75]: https://github.com/ChatterTeam/chatter/pull/75
+[#77]: https://github.com/ChatterTeam/chatter/pull/77
+[#81]: https://github.com/ChatterTeam/chatter/pull/81
+[#86]: https://github.com/ChatterTeam/chatter/pull/86
+[#87]: https://github.com/ChatterTeam/chatter/pull/87
+[#96]: https://github.com/ChatterTeam/chatter/pull/96
