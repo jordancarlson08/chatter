@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
  ~ Copyright (C) 2017 Jeff Gilfelt.
  ~
  ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,6 +15,7 @@
  -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.chatbooks.chatter">
+
     <application>
         <activity
             android:name="com.chatbooks.chatter.internal.ui.MainActivity"
@@ -23,12 +23,14 @@
             android:launchMode="singleTask"
             android:taskAffinity="com.chatbooks.chatter.task"
             android:theme="@style/Chatter.Theme" />
-        <activity android:name="com.chatbooks.chatter.internal.ui.transaction.TransactionActivity"
-            android:theme="@style/Chatter.Theme"
-            android:parentActivityName="com.chatbooks.chatter.internal.ui.MainActivity"/>
-        <activity android:name="com.chatbooks.chatter.internal.ui.error.ErrorActivity"
-            android:theme="@style/Chatter.Theme"
-            android:parentActivityName="com.chatbooks.chatter.internal.ui.MainActivity" />
+        <activity
+            android:name="com.chatbooks.chatter.internal.ui.transaction.TransactionActivity"
+            android:parentActivityName="com.chatbooks.chatter.internal.ui.MainActivity"
+            android:theme="@style/Chatter.Theme" />
+        <activity
+            android:name="com.chatbooks.chatter.internal.ui.error.ErrorActivity"
+            android:parentActivityName="com.chatbooks.chatter.internal.ui.MainActivity"
+            android:theme="@style/Chatter.Theme" />
 
         <service
             android:name="com.chatbooks.chatter.internal.support.ClearDatabaseService"

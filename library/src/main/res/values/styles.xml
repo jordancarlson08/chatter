@@ -15,7 +15,7 @@
  ~ limitations under the License.
  -->
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <style name="Chatter.Theme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="Chatter.Theme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary">@color/chatter_primary_color</item>
         <item name="colorPrimaryDark">@color/chatter_primary_dark_color</item>
         <item name="colorAccent">@color/chatter_secondary_color</item>
