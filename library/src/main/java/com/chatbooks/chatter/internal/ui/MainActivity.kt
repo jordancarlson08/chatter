@@ -37,6 +37,9 @@ class MainActivity : BaseChatterActivity(), TransactionAdapter.TransactionClickL
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowCustomEnabled(true)
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.chatter_ic_close)
 
         viewPager.adapter = HomePageAdapter(supportFragmentManager)
 
@@ -80,6 +83,11 @@ class MainActivity : BaseChatterActivity(), TransactionAdapter.TransactionClickL
 
     override fun onClick(throwableId: Long, position: Int) {
 
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return super.onSupportNavigateUp()
     }
 
     companion object {
