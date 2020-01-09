@@ -28,4 +28,12 @@ object Chatter {
     @JvmStatic fun dismissErrorsNotification(context: Context) {
         // Empty method for the library-no-op artifact
     }
+
+    enum class Screen {
+        SESSION,
+        HTTP,
+        CRASHES,
+        EVENTS,
+        APPSTRINGS
+    }
 }
