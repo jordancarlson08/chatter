@@ -51,7 +51,7 @@ class NotificationHelper(private val context: Context) {
         addToBuffer(transaction)
         if (!BaseChatterActivity.isInForeground) {
             val builder = NotificationCompat.Builder(context, CHANNEL_ID)
-                    .setContentIntent(PendingIntent.getActivity(context, TRANSACTION_NOTIFICATION_ID, Chatter.getLaunchIntent(context, Chatter.Screen.HTTP), PendingIntent.FLAG_UPDATE_CURRENT))
+                    .setContentIntent(PendingIntent.getActivity(context, TRANSACTION_NOTIFICATION_ID, Chatter.getLaunchIntent(context, Chatter.SCREEN_HTTP), PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE))
                     .setLocalOnly(true)
                     .setSmallIcon(R.drawable.chatter_ic_notification)
                     .setColor(ContextCompat.getColor(context, R.color.chatter_primary_color))
@@ -84,7 +84,7 @@ class NotificationHelper(private val context: Context) {
     fun show(throwable: RecordedThrowable) {
         if (!BaseChatterActivity.isInForeground) {
             val builder = NotificationCompat.Builder(context, CHANNEL_ID)
-                    .setContentIntent(PendingIntent.getActivity(context, ERROR_NOTIFICATION_ID, Chatter.getLaunchIntent(context, Chatter.Screen.CRASHES), PendingIntent.FLAG_UPDATE_CURRENT))
+                    .setContentIntent(PendingIntent.getActivity(context, ERROR_NOTIFICATION_ID, Chatter.getLaunchIntent(context, Chatter.SCREEN_CRASHES), PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE))
                     .setLocalOnly(true)
                     .setSmallIcon(R.drawable.chatter_ic_subject_white_24dp)
                     .setColor(ContextCompat.getColor(context, R.color.chatter_status_error))
@@ -96,26 +96,26 @@ class NotificationHelper(private val context: Context) {
         }
     }
 
-    fun show(generic: Generic) {
-        if (!BaseChatterActivity.isInForeground) {
-            val builder = NotificationCompat.Builder(context, CHANNEL_ID)
-                    .setContentIntent(PendingIntent.getActivity(context, GENERIC_NOTIFICATION_ID, Chatter.getLaunchIntent(context, Chatter.Screen.EVENTS), PendingIntent.FLAG_UPDATE_CURRENT))
-                    .setLocalOnly(true)
-                    .setSmallIcon(R.drawable.chatter_ic_subject_white_24dp)
-                    .setColor(ContextCompat.getColor(context, R.color.chatter_status_error))
-                    .setContentTitle(generic.title)
-                    .setAutoCancel(true)
-                    .setContentText(generic.message)
-                    .addAction(createClearAction(ClearDatabaseService.ClearAction.Error))
-            notificationManager.notify(GENERIC_NOTIFICATION_ID, builder.build())
-        }
-    }
+//    fun show(generic: Generic) {
+//        if (!BaseChatterActivity.isInForeground) {
+//            val builder = NotificationCompat.Builder(context, CHANNEL_ID)
+//                    .setContentIntent(PendingIntent.getActivity(context, GENERIC_NOTIFICATION_ID, Chatter.getLaunchIntent(context, Chatter.Screen.EVENTS), PendingIntent.FLAG_UPDATE_CURRENT))
+//                    .setLocalOnly(true)
+//                    .setSmallIcon(R.drawable.chatter_ic_subject_white_24dp)
+//                    .setColor(ContextCompat.getColor(context, R.color.chatter_status_error))
+//                    .setContentTitle(generic.title)
+//                    .setAutoCancel(true)
+//                    .setContentText(generic.message)
+//                    .addAction(createClearAction(ClearDatabaseService.ClearAction.Error))
+//            notificationManager.notify(GENERIC_NOTIFICATION_ID, builder.build())
+//        }
+//    }
 
     private fun createClearAction(clearAction: ClearDatabaseService.ClearAction): NotificationCompat.Action {
         val clearTitle = context.getString(R.string.chatter_clear)
         val deleteIntent = Intent(context, ClearDatabaseService::class.java)
         deleteIntent.putExtra(ClearDatabaseService.EXTRA_ITEM_TO_CLEAR, clearAction)
-        val intent = PendingIntent.getService(context, 11, deleteIntent, PendingIntent.FLAG_ONE_SHOT)
+        val intent = PendingIntent.getService(context, 11, deleteIntent, PendingIntent.FLAG_ONE_SHOT or PendingIntent.FLAG_IMMUTABLE)
         return NotificationCompat.Action(R.drawable.chatter_ic_delete_white_24dp, clearTitle, intent)
     }
 

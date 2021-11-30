@@ -26,5 +26,5 @@ internal interface GenericDao {
     fun deleteBefore(threshold: Long)
 
     @Query("SELECT id,screen,title,date,subTitle,message FROM generics WHERE screen = :screen ORDER BY date DESC")
-    fun getTuplesForScreen(screen: Int): LiveData<List<GenericTuple>>
+    fun getTuplesForScreen(screen: String): LiveData<List<GenericTuple>>
 }

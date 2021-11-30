@@ -21,10 +21,10 @@ internal class GenericListFragment : Fragment() {
         const val SCREEN = "SCREEN"
 
         @JvmStatic
-        fun newInstance(screen: Int): GenericListFragment {
+        fun newInstance(screenName: String): GenericListFragment {
             val fragment = GenericListFragment()
             val args = Bundle()
-            args.putInt(SCREEN, screen)
+            args.putString(SCREEN, screenName)
             fragment.arguments = args
             return fragment
         }
@@ -33,7 +33,7 @@ internal class GenericListFragment : Fragment() {
     private lateinit var adapter: GenericAdapter
     private lateinit var listener: GenericAdapter.OnClickListListener
     private lateinit var tutorialView: View
-    private var screen = 0
+    private var screenName = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,7 +55,7 @@ internal class GenericListFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        screen = arguments?.getInt(SCREEN) ?: 0
+        screenName = arguments?.getString(SCREEN) ?: ""
 
         require(context is GenericAdapter.OnClickListListener) {
             "Context must implement the listener."
@@ -63,7 +63,7 @@ internal class GenericListFragment : Fragment() {
         listener = context
 
         RepositoryProvider.generic()
-                .getSortedGenericsTuples(screen)
+                .getSortedGenericsTuples(screenName)
                 .observe(
                         this,
                         Observer { tuples ->

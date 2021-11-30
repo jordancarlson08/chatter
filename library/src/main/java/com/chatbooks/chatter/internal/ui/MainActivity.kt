@@ -20,7 +20,6 @@ import android.os.Bundle
 import androidx.appcompat.widget.Toolbar
 import com.chatbooks.chatter.R
 import com.chatbooks.chatter.api.Chatter
-import com.chatbooks.chatter.api.Chatter.Screen.HTTP
 import com.chatbooks.chatter.internal.ui.error.ErrorActivity
 import com.chatbooks.chatter.internal.ui.error.ErrorAdapter
 import com.chatbooks.chatter.internal.ui.generic.GenericAdapter
@@ -68,8 +67,8 @@ class MainActivity : BaseChatterActivity(), TransactionAdapter.TransactionClickL
      * Scroll to the right tab.
      */
     private fun consumeIntent(intent: Intent) {
-        // Get the screen to show, by default => HTTP
-        val screenOrdinal = intent.getIntExtra(EXTRA_SCREEN, HTTP.ordinal)
+        // Get the screen to show, by default => The first screen
+        val screenOrdinal = intent.getIntExtra(EXTRA_SCREEN, 0)
         viewPager.setCurrentItem(screenOrdinal, true)
     }
 

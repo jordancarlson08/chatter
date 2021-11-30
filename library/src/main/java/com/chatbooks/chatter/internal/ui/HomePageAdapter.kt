@@ -9,33 +9,25 @@ import com.chatbooks.chatter.internal.ui.generic.GenericListFragment
 import com.chatbooks.chatter.internal.ui.transaction.TransactionListFragment
 
 /**
- * @author Olivier Perez
+ * @author Jordan Carlson
  */
 internal class HomePageAdapter(fragmentManager: FragmentManager) : FragmentStatePagerAdapter(fragmentManager) {
 
     override fun getItem(position: Int): Fragment {
-        return when (position) {
-            Chatter.Screen.SESSION.ordinal -> GenericListFragment.newInstance(position)
-            Chatter.Screen.HTTP.ordinal -> TransactionListFragment.newInstance()
-            Chatter.Screen.CRASHES.ordinal -> ErrorListFragment.newInstance()
-            Chatter.Screen.EVENTS.ordinal -> GenericListFragment.newInstance(position)
-            Chatter.Screen.APPSTRINGS.ordinal -> GenericListFragment.newInstance(position)
-            else -> TransactionListFragment.newInstance()
+        val screen = Chatter.screens[position]
+        return when (screen.screenType) {
+            Chatter.ScreenType.HTTP -> TransactionListFragment.newInstance()
+            Chatter.ScreenType.CRASHES -> ErrorListFragment.newInstance()
+            Chatter.ScreenType.GENERIC -> GenericListFragment.newInstance(screen.name)
         }
     }
 
     override fun getCount(): Int {
-        return Chatter.Screen.values().size
+        return Chatter.screens.size
     }
 
     override fun getPageTitle(position: Int): CharSequence? {
-        return when (position) {
-            Chatter.Screen.SESSION.ordinal -> Chatter.Screen.values()[position].name
-            Chatter.Screen.HTTP.ordinal -> Chatter.Screen.values()[position].name
-            Chatter.Screen.CRASHES.ordinal -> Chatter.Screen.values()[position].name
-            Chatter.Screen.EVENTS.ordinal -> Chatter.Screen.values()[position].name
-            Chatter.Screen.APPSTRINGS.ordinal -> Chatter.Screen.values()[position].name
-            else -> Chatter.Screen.values()[position].name
-        }
+        val screen = Chatter.screens[position]
+        return screen.name
     }
 }

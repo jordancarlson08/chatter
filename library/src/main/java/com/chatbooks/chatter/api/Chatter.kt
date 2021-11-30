@@ -17,6 +17,22 @@ object Chatter {
      */
     val isOp = true
 
+    val SCREEN_HTTP = Screen("HTTP", ScreenType.HTTP)
+    val SCREEN_CRASHES = Screen("Crashes", ScreenType.CRASHES)
+    private val defaultScreens = listOf(
+            SCREEN_HTTP,
+            SCREEN_CRASHES
+    )
+
+    /**
+     * Set the screens that will be supported in the app.
+     * Screens must have unique name.
+     * Default to HTTP and Crashes
+     */
+    fun initChatter(screens: List<Screen>) {
+        this.screens = screens
+    }
+
     /**
      * Get an Intent to launch the Chatter UI directly.
      * @param context An Android [Context].
@@ -27,7 +43,7 @@ object Chatter {
     fun getLaunchIntent(context: Context, screen: Screen): Intent {
         return Intent(context, MainActivity::class.java)
                 .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                .putExtra(MainActivity.EXTRA_SCREEN, screen.ordinal)
+                .putExtra(MainActivity.EXTRA_SCREEN, screen.name)
     }
 
     /**
@@ -57,13 +73,18 @@ object Chatter {
         NotificationHelper(context).dismissErrorsNotification()
     }
 
-    enum class Screen {
-        SESSION,
+    enum class ScreenType {
         HTTP,
         CRASHES,
-        EVENTS,
-        APPSTRINGS
+        GENERIC,
     }
+
+    var screens: List<Screen> = defaultScreens
+
+    class Screen(
+            val name: String,
+            val screenType: ScreenType
+    )
 
     internal const val LOG_TAG = "Chatter"
 }

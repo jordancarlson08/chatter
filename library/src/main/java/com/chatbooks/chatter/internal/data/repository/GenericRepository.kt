@@ -19,7 +19,7 @@ internal interface GenericRepository {
 
     fun deleteAllGenerics()
 
-    fun getSortedGenericsTuples(screen: Int): LiveData<List<GenericTuple>>
+    fun getSortedGenericsTuples(screen: String): LiveData<List<GenericTuple>>
 
     fun getRecordedGeneric(id: Long): LiveData<Generic>
 }

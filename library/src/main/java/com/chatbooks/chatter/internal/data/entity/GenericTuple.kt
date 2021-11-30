@@ -8,7 +8,7 @@ import androidx.room.ColumnInfo
  */
 internal data class GenericTuple(
         @ColumnInfo(name = "id") var id: Long? = 0,
-        @ColumnInfo(name = "screen") var screen: Long = 0,
+        @ColumnInfo(name = "screen") var screen: String = "",
         @ColumnInfo(name = "subTitle") var subTitle: String?,
         @ColumnInfo(name = "date") var date: Long?,
         @ColumnInfo(name = "title") var title: String?,

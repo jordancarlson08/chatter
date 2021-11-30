@@ -48,12 +48,11 @@ class ChatterCollector @JvmOverloads constructor(
      * Call this method when you want to record it a generic event.
      */
     fun onGeneric(screen: Chatter.Screen, title: String, subTitle: String?, message: String?, content: String?) {
-        val screenInt = screen.ordinal
-        val generic = Generic(screenInt, title, subTitle, message, content)
+        val generic = Generic(screen.name, title, subTitle, message, content)
         RepositoryProvider.generic().saveGeneric(generic)
-        if (showNotification) {
-            notificationHelper.show(generic)
-        }
+//        if (showNotification) {
+//            notificationHelper.show(generic)
+//        }
         retentionManager.doMaintenance()
     }
 

@@ -21,7 +21,7 @@ internal class GenericDatabaseRepository(
         executor.execute { database.genericDao().deleteAll() }
     }
 
-    override fun getSortedGenericsTuples(screen: Int): LiveData<List<GenericTuple>> {
+    override fun getSortedGenericsTuples(screen: String): LiveData<List<GenericTuple>> {
         return database.genericDao().getTuplesForScreen(screen)
     }
 
